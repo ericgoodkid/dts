@@ -1,0 +1,113 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+
+    <title>Login</title>
+
+    <!--Core CSS -->
+    <link rel="shortcut icon" href="{% static 'personal/images/favicon.png' %}">
+
+    <link href="{% static 'personal/bs3/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'personal/css/bootstrap-reset.css' %}" rel="stylesheet">
+    <link href="{% static 'personal/font-awesome/css/font-awesome.css' %}" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="{% static 'personal/css/style.css ' %}" rel="stylesheet">
+    <link href="{% static 'personal/css/style-responsive.css' %}" rel="stylesheet" />
+    <link href="{% static 'personal/js/sweetalert/sweetalert.css' %}" rel="stylesheet">
+
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]>
+    <script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="login-body">
+    <div class="container">
+        <form class="form-signin" method="post">
+            <h2 class="form-signin-heading">login now!</h2>
+            <div class="login-wrap">
+                <div class="user-login-info">
+                    <div class="input-group m-bot15"> <span class="input-group-addon"><i class ="fa fa-user"></i></span>
+                        <input name="username" id="txtusername" type="text" class="form-control" placeholder="Username" required> </div>
+                    <div class="input-group m-bot15"> <span class="input-group-addon"><i class ="fa fa-lock"></i></span>
+                        <input name="password" id="txtpassword" type="password" class="form-control" placeholder="Password" required> </div>
+                </div>
+                <label class="checkbox">
+                        <input type="checkbox" value="remember-me"> Remember me <span class="pull-right">
+                    <a data-toggle="modal" href="#ForgotPassword"> Forgot Password?</a>
+                </span> </label>
+                <button name="login" class="btn btn-lg btn-login btn-block" type="button" id="btnsignin">Sign in</button>
+                <ul>
+                    {% for d in datas %}
+                    <li>{{d}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </form>
+        <form>
+            <!-- Modal -->
+            <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="ForgotPassword" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Forgot Password ?</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Enter your e-mail address below to reset your password.</p>
+                            <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix"> </div>
+                        <div class="modal-footer">
+                            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                            <button class="btn btn-success" type="button">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- modal -->
+        </form>
+    </div>
+    <!-- Placed js at the end of the document so the pages load faster -->
+
+    <!--Core js-->
+    <script src="{% static 'personal/js/jquery.js' %}"></script>
+    <script src="{% static 'personal/bs3/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'personal/js/sweetalert/sweetalert.min.js' %}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#btnsignin').on('click', function() {
+
+                var username = document.getElementById('txtusername').value;
+                var password = document.getElementById('txtpassword').value;
+                if (username == 'demelyn') {
+                    if (password == 'password')
+                        window.location.replace("http://localhost/osas mis/login.php?uname=" + username + "&pass=" + password);
+
+                    //                        alert(window.location.port);
+                    else
+                        swal("Password do not match", "Please try again!", "error");
+                } else
+                    swal("Username doesn't match in any values in the server", "Please try again!", "error");
+
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

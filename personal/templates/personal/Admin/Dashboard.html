@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html>
+{% load staticfiles %}
+
+<head>
+    <title>Admin - Accreditation Requirement</title>
+    {% include 'personal/Admin/header.html' %}
+</head>
+
+<body>
+
+    <section id="container">
+        <!--header start-->
+        <header class="header fixed-top clearfix">
+            <!--logo start-->
+            <div class="brand">
+                <a href="dashboard.php" class="logo"> <img src="{% static 'personal/images/logo.png' %}" alt=""> </a>
+                <div class="sidebar-toggle-box">
+                    <div class="fa fa-bars"></div>
+                </div>
+            </div>
+            <div class="top-nav clearfix">
+                <!--search & user info start-->
+
+                <ul class="nav pull-right top-menu">
+                    <li>
+                        <input type="text" class="form-control search" placeholder=" Search"> </li>
+                    <!-- user login dropdown start-->
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#"> <img alt="" src='Avatar/asd.png'> <span class="username">Eric Valdez </span> <b class="caret"></b> </a>
+                        <ul class="dropdown-menu extended logout">
+                            <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
+                            <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                            <li><a href="../config/logout.php"><i class="fa fa-key"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->
+
+                </ul>
+                <ul class="nav top-menu">
+                    <li>
+                        <div class='col-md-12'>
+                            <ul class='breadcrumbs-alt'>
+                                <li> <a class='current' href='#'>Dashboard</a> </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <!--search & user info end-->
+            </div>
+        </header>
+        <!--header end-->
+        <aside>
+            <div id="sidebar" class="nav-collapse">
+                {% with 'ADMIN_DASHBOARD' as sidenav_stat %} {% include 'personal/Admin/sidenav.html ' %} {% endwith %}
+            </div>
+        </aside>
+        <!--sidebar end-->
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <!-- page start-->
+                <div class="row">
+                        <div class="col-lg-12">
+                            <section class="panel">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <section class="panel text-center">
+                                                <div class="pricing-table">
+                                                    <div class="pricing-head" style="background-color:#81B9C3;">
+                                                        <h3 style="padding-top:50px;color:white">System Setup</h3>
+                                                        <h5 style="color:white">Quick Review</h5>
+                                                    </div>
+                                                    <div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="mini-stat clearfix" style="background-color:#F1F2F7">
+                                                                    <span class="mini-stat-icon " style="background-color:#A38F84"><i class="fa lg fa-gavel"></i></span>
+                                                                    <div class="mini-stat-info">
+                                                                        <span>{{list.5}}</span> Accreditation Requirement
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="mini-stat clearfix" style="background-color:#F1F2F7">
+                                                                    <span class="mini-stat-icon" style="background-color:#5C9DED"><i class="fa fa-asterisk"></i></span>
+                                                                    <div class="mini-stat-info">
+                                                                        <span>{{list.4}}</span> Assistance Title
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="mini-stat clearfix" style="background-color:#F1F2F7">
+                                                                    <span class="mini-stat-icon" style="background-color:#D870AD"><i class="fa  fa-thumb-tack"></i></span>
+                                                                    <div class="mini-stat-info">
+                                                                        <span>{{list.3}}</span> Course
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="mini-stat clearfix" style="background-color:#F1F2F7">
+                                                                    <span class="mini-stat-icon" style="background-color:#75706B"><i class="fa fa-anchor"></i></span>
+                                                                    <div class="mini-stat-info">
+                                                                        <span>{{list.1}}</span> Clearance Signatory
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="mini-stat clearfix" style="background-color:#F1F2F7">
+                                                                    <span class="mini-stat-icon " style="background-color:#D14841"><i class="fa fa-home"></i></span>
+                                                                    <div class="mini-stat-info">
+                                                                        <span>{{list.4}}</span> Designated Offices
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="mini-stat clearfix" style="background-color:#F1F2F7">
+                                                                    <span class="mini-stat-icon" style="background-color:#61BD6D"><i class="fa fa-asterisk"></i></span>
+                                                                    <div class="mini-stat-info">
+                                                                        <span>{{list.3}}</span> Organization Category
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="mini-stat clearfix" style="background-color:#F1F2F7">
+                                                                    <span class="mini-stat-icon" style="background-color:#3D8EB9"><i class="fa fa-tasks"></i></span>
+                                                                    <div class="mini-stat-info">
+                                                                        <span>{{list.6}}</span> Sanction
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="mini-stat clearfix" style="background-color:#F1F2F7">
+                                                                    <span class="mini-stat-icon" style="background-color:#553982"><i class="fa  fa-calendar-o"></i></span>
+                                                                    <div class="mini-stat-info">
+                                                                        <span>{{list.8}}</span> Semester
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <section class="panel text-center">
+                                                <div class="pricing-table">
+                                                    <div class="pricing-head" style="background-color:#D0695A;">
+                                                        <h1>
+                                                        </h1>
+                                                    </div>
+                                                    <div class="pricing-quote">
+                                                        1
+                                                        <p>Account</p>
+                                                    </div>
+                                                    <div style="background-color:#F1F2F7;">
+                                                        <h1 style="padding-top:80px;padding-bottom:20px"> Current User </h1>
+                                                    </div>
+                                                    <section class="panel weather-box" style="padding-top:15px">
+                                                        <div class="symbol purple-bg">
+                                                            <i class="fa fa-user "></i>
+                                                        </div>
+                                                        <div class="value" style="background-color:#F1F2F7;padding-top:70px">
+                                                            <i class="fa fa-smile-o"></i>
+                                                            <h4>6</h4>
+                                                            <p>Active Accounts</p>
+                                                        </div>
+                                                    </section>
+                                                    <div class="col-lg-4">
+                                                        <div class="mini-stat clearfix" style="background-color:#F1F2F7;">
+                                                            <span class="mini-stat-icon" style="background-color:#61BD6D"><i class="fa  fa-star"></i></span>
+                                                            <div class="mini-stat-info">
+                                                                <span>1</span> OSAS Head<br/>Account
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="mini-stat clearfix" style="background-color:#F1F2F7;">
+                                                            <span class="mini-stat-icon" style="background-color:#5C9DED"><i class="fa fa-wrench"></i></span>
+                                                            <div class="mini-stat-info">
+                                                                <span>5</span> System Admin<br/>Account
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="mini-stat clearfix" style="background-color:#F1F2F7;">
+                                                            <span class="mini-stat-icon" style="background-color:#D14841"><i class="fa fa-users"></i></span>
+                                                            <div class="mini-stat-info">
+                                                                <span>0</span> Organization<br/>Account
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                <!-- page end-->
+            </section>
+        </section>
+        <!--main content end-->
+        <!--right sidebar start-->
+        <div class="right-sidebar">
+            <div class="right-stat-bar">
+                <ul class="right-side-accordion">
+                    <li class="widget-collapsible">
+                        <ul class="widget-container">
+                            <li>
+                                <div class="prog-row side-mini-stat clearfix">
+                                    <div class="side-mini-graph">
+                                        <div class="target-sell">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--right sidebar end-->
+
+    </section>
+    <!-- Modal -->
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="Add" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Add Clearance Signatory</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="post" id="form-data">
+                        <div class="row" style="padding-left:15px;padding-top:10px">
+                            <div class="col-lg-6">
+                                Clearance Signatory Name <input type="text" class="form-control" placeholder="ex. Accounting Office" id="txtname">
+                            </div>
+                            <div class="col-lg-8 " style="padding-top:10px">
+                                Clearance Signatory Description<textarea class="form-control" placeholder="ex. Accounting Office" rows="6" style="margin: 0px 202.5px 0px 0px;resize:none" id="txtdesc"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-default" id="close" type="button">Close</button>
+                    <button class="btn btn-success " id="submit-data" type="button">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Placed js at the end of the document so the pages load faster -->
+
+    <!--Core js-->
+
+    <!--script for this page only-->
+    {% include 'personal/Admin/footer.html ' %}
+    <script src="{% static 'personal/Admin/SanctionSetup/ClearanceSignatory.js' %}"></script>
+
+    <!-- END JAVASCRIPTS -->
+    <script>
+        $(document).ready(function() {
+
+        });
+        jQuery(document).ready(function() {
+            EditableTable.init();
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html>
+{% load staticfiles %}
+
+<head>
+    <title>Admin - Academic Year</title>
+    {% include 'personal/Admin/header.html' %}
+</head>
+
+<body>
+
+    <section id="container">
+        <!--header start-->
+        <header class="header fixed-top clearfix">
+            <!--logo start-->
+            <div class="brand">
+                <a href="dashboard.php" class="logo"> <img src="{% static 'personal/images/logo.png' %}" alt=""> </a>
+                <div class="sidebar-toggle-box">
+                    <div class="fa fa-bars"></div>
+                </div>
+            </div>
+            <div class="top-nav clearfix">
+                <!--search & user info start-->
+
+                <ul class="nav pull-right top-menu">
+                    <li>
+                        <input type="text" class="form-control search" placeholder=" Search"> </li>
+                    <!-- user login dropdown start-->
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#"> <img alt="" src='Avatar/asd.png'> <span class="username">Eric Valdez </span> <b class="caret"></b> </a>
+                        <ul class="dropdown-menu extended logout">
+                            <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
+                            <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                            <li><a href="../config/logout.php"><i class="fa fa-key"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->
+
+                </ul>
+                <ul class="nav top-menu">
+                    <li>
+                        <div class='col-md-12'>
+                            <ul class='breadcrumbs-alt'>
+                                <li> <a href='#'>Admin Setup</a> </li>
+                                <li><a class='current' href='#'>Active Academic Year and Semester</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <!--search & user info end-->
+            </div>
+        </header>
+        <!--header end-->
+        <aside>
+            <div id="sidebar" class="nav-collapse">
+                {% with 'ADMIN_ACTIVE' as sidenav_stat %} {% include 'personal/Admin/sidenav.html ' %} {% endwith %}
+            </div>
+        </aside>
+        <!--sidebar end-->
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <!-- page start-->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mini-stat clearfix"> <span class="mini-stat-icon tar"><i class="fa  fa-chain"></i></span>
+                            <div class="mini-stat-info"> <span id="lblactiveyear"> {{year}}</span> Activated Academic Year </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mini-stat clearfix"> <span class="mini-stat-icon tar"><i class="fa  fa-chain"></i></span>
+                            <div class="mini-stat-info"> <span id="lblactivesem">{{sem}}</span> Activated Semester </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <section class="panel">
+                            <div class="panel-body">
+                                <div class="adv-table editable-table ">
+                                    <div class="space15"></div>
+                                    <div class="col-lg-12">
+                                        <table class="table table-striped table-hover table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Academic Year </th>
+                                                    <th>Status </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <form method="post">
+                                                    {% for data in yearlist%} {% if data.0 == year %}
+                                                    <tr class=''>
+                                                        <td>{{data.0}}</td>
+                                                        <td>
+                                                            <center>
+                                                                <input type='radio' name='radbtn' code={{data.0}} checked class='checkbox form-control myradio' style='width: 20px' />
+                                                            </center>
+                                                        </td>
+                                                    </tr>
+                                                    {% else %}
+                                                    <tr class=''>
+                                                        <td>{{data.0}}</td>
+                                                        <td>
+                                                            <center>
+                                                                <input type='radio' name='radbtn' code={{data.0}} class='checkbox form-control myradio' style='width: 20px' />
+                                                            </center>
+                                                        </td>
+                                                    </tr>
+
+                                                    {% endif %} {% endfor %}
+                                                </form>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-sm-6">
+                        <section class="panel">
+                            <div class="panel-body">
+                                <div class="adv-table editable-table ">
+                                    <div class="space15"></div>
+                                    <table class="table table-striped table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Semestral Name</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <form method="post">
+                                                {% for data in semlist%} {% if data.0 == sem %}
+                                                <tr class=''>
+                                                    <td>{{data.0}}</td>
+                                                    <td>
+                                                        <center>
+                                                            <input type='radio' name='radbtn' code="{{data.0}}" checked class='checkbox form-control myradioSem' style='width: 20px' />
+                                                        </center>
+                                                    </td>
+                                                </tr>
+                                                {% else %}
+                                                <tr class=''>
+                                                    <td>{{data.0}}</td>
+                                                    <td>
+                                                        <center>
+                                                            <input type='radio' name='radbtn' code="{{data.0}}" class='checkbox form-control myradioSem' style='width: 20px' />
+                                                        </center>
+                                                    </td>
+                                                </tr>
+                                                {% endif %} {% endfor %}
+                                            </form>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <!-- page end-->
+            </section>
+        </section>
+        <!--main content end-->
+        <!--right sidebar start-->
+        <div class="right-sidebar">
+            <div class="right-stat-bar">
+                <ul class="right-side-accordion">
+                    <li class="widget-collapsible">
+                        <ul class="widget-container">
+                            <li>
+                                <div class="prog-row side-mini-stat clearfix">
+
+                                    <div class="side-mini-graph">
+                                        <div class="target-sell">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--right sidebar end-->
+
+    </section>
+    <!-- Placed js at the end of the document so the pages load faster -->
+
+    <!--Core js-->
+
+    <!--script for this page only-->
+    {% include 'personal/Admin/footer.html ' %}
+    <script src="{% static 'personal/Admin/AdminSetup/BatchYear.js ' %}"></script>
+
+    <!-- END JAVASCRIPTS -->
+    <script>
+        $(document).ready(function() {
+
+        });
+        jQuery(document).ready(function() {
+            $('.myradio').on('change', function() {
+                document.getElementById('lblactiveyear').innerText = $(this).attr('code');
+                $.ajax({
+                    type: 'post',
+                    url: '/year_add',
+                    data: {
+                        _code: $(this).attr('code')
+
+
+                    },
+                    success: function(response) {
+                        swal("Record Added!", "The data is successfully added!", "success");
+
+
+                    },
+                    error: function(response) {
+                        swal("Error encountered while adding data", "Please try again", "error");
+                        $("#editable-sample_new").click();
+                    }
+
+                });
+
+
+            });
+            $('.myradioSem').on('change', function() {
+                document.getElementById('lblactivesem').innerText = $(this).attr('code');
+                $.ajax({
+                    type: 'post',
+                    url: '/sem_add',
+                    data: {
+                        _code: $(this).attr('code')
+
+
+                    },
+                    success: function(response) {
+                        swal("Record Added!", "The data is successfully added!", "success");
+                    },
+                    error: function(response) {
+                        swal("Error encountered while adding data", "Please try again", "error");
+                        $("#editable-sample_new").click();
+                    }
+
+                });
+
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

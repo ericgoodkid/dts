@@ -1,0 +1,149 @@
+<aside>
+    <div id="sidebar" class="nav-collapse">
+        <!-- sidebar menu start-->
+        <div class="leftside-navigation">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    {% if sidenav_stat == 'ADMIN_DASHBOARD' %}
+                    <a href="Dashboard.php"  class="active">
+                        <i class ="fa fa-dashboard" ></i>
+                        <span>Dashboard</span>
+                    </a>
+                    {% else %}
+                    <a href="Dashboard.php">
+                        <i class ="fa fa-dashboard" ></i>
+                        <span>Dashboard</span>
+                    </a>
+                    {% endif %}
+                </li>
+                <li class="sub-menu">
+                    {% if sidenav_stat == 'ADMIN_ASSTIT' or sidenav_stat == 'ADMIN_BATYEAR' or sidenav_stat == 'ADMIN_SEM' %}
+                    <a href="javascript:;" class='active'>
+                        <i class="fa fa-user"></i>
+                        <span>Student Setup</span>
+                    </a> {% else %}
+                    <a href="javascript:;">
+                        <i class="fa fa-users"></i>
+                        <span>Student Setup</span>
+                    </a> {% endif %}
+                    <ul class="sub">
+                        {% if sidenav_stat == 'ADMIN_ASSTIT' %}
+                        <li class="active"><a href="FinancialAssistanceTitle.html">Assistance Title</a></li>
+                        {% else %}
+                        <li><a href="FinancialAssistanceTitle.html">Assistance Title</a></li>
+                        {% endif %}
+                        {% if sidenav_stat == 'ADMIN_BATYEAR' %}
+                        <li class="active"><a href="AcademicYear.html">Batch Year</a></li>
+                        {% else %}
+                        <li><a href="AcademicYear.html">Batch Year</a></li>
+                        {% endif %}
+                        {% if sidenav_stat == 'ADMIN_SEM' %}
+                        <li class="active"><a href="Semester.html" >Semester</a></li>
+                        {% else %}
+                        <li><a href="Semester.html">Semester</a></li>
+                        {% endif %}
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    {% if sidenav_stat == 'ADMIN_ACCREQ' or sidenav_stat == 'ADMIN_COURSE' or sidenav_stat == 'ADMIN_ORGCAT' %}
+                    <a href="javascript:;" class='active'>
+                        <i class="fa fa-users"></i>
+                        <span>Organization Setup</span>
+                    </a> {% else %}
+                    <a href="javascript:;">
+                        <i class="fa fa-users"></i>
+                        <span>Organization Setup</span>
+                    </a> {% endif %}
+                    <ul class="sub">
+                        {% if sidenav_stat == 'ADMIN_ACCREQ' %}
+                        <li class='active'><a href="AccreditationRequirement.php">Accreditation Requirement</a></li>
+                        {% else %}
+                        <li><a href="AccreditationRequirement.html">Accreditation Requirement</a></li>
+                        {% endif %} 
+                        {% if sidenav_stat == 'ADMIN_COURSE' %}
+                        <li class='active'><a href="Course.html">Course</a></li>
+                        {% else %}
+                        <li><a href="Course.html">Course</a></li>
+                        {% endif %} 
+                        {% if sidenav_stat == 'ADMIN_ORGCAT' %}
+                        <li class='active'><a href="OrganizationCategory.html">Organization Category</a></li>
+                        {% else %}
+                        <li><a href="OrganizationCategory.html">Organization Category</a></li>
+                        {% endif %}
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    {% if sidenav_stat == 'ADMIN_CLESIG' or sidenav_stat == 'ADMIN_DESOFF' or sidenav_stat == 'ADMIN_SANDET' %}
+                    <a href="javascript:;" class='active'>
+                        <i class="fa fa-users"></i>
+                        <span>Sanction Setup</span>
+                    </a> 
+                    {% else %}
+                    <a href="javascript:;">
+                        <i class="fa fa-users"></i>
+                        <span>Sanction Setup</span>
+                    </a> {% endif %}
+                    <ul class="sub">
+                        {% if sidenav_stat == 'ADMIN_CLESIG' %}
+                        <li class="active"><a href="ClearanceSignatory.html">Clearance Signatory</a></li>
+                        {% else %}
+                        <li><a href="ClearanceSignatory.html">Clearance Signatory</a></li>
+                        {% endif %} 
+                        {% if sidenav_stat == 'ADMIN_DESOFF' %}
+                        <li class="active"><a href="DesignatedOffice.html">Designated Office</a></li>
+                        {% else %}
+                        <li><a href="DesignatedOffice.html">Designated Office</a></li>
+                        {% endif %} 
+                        {% if sidenav_stat == 'ADMIN_SANDET' %}
+                        <li class="active"><a href="SanctionDetail.html">Sanction Detail</a></li>
+                        {% else %}
+                        <li><a href="SanctionDetail.html">Sanction Detail</a></li>
+                        {% endif %} 
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    {% if sidenav_stat == 'ADMIN_ACTIVE' %}
+                    <a href="javascript:;" class="active">
+                        <i class="fa fa-user"></i>
+                        <span>Admin Setup</span>
+                    </a>
+                    {% else %}
+                    <a href="javascript:;">
+                        <i class="fa fa-user"></i>
+                        <span>Admin Setup</span>
+                    </a>
+                    {% endif %}
+                    <ul class="sub">
+                        {% if sidenav_stat == 'ADMIN_ACTIVE' %}
+                        <li class="active"><a href="ActiveAcademicYear.html">Active Academic Year and Semester</a></li>
+                        {% else %}
+                        <li><a href="ActiveAcademicYear.html">Active Academic Year and Semester</a></li>
+                        {% endif %}
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- sidebar menu end-->
+    </div>
+</aside>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="admin-login" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Forgot Password ?</h4>
+            </div>
+            <div class="modal-body">
+                <p>Enter your e-mail address below to reset your password.</p>
+                <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-               default" type="button">Cancel</button>
+                <button class="btn btn-success" type="button">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal -->
